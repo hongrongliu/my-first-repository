@@ -1,1 +1,13 @@
-
+try:
+        with open("words.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                word = line.strip().lower()  # 转小写，去除首尾空格/换行
+                if word and word.isalpha():  # 确保是非空、仅字母的单词
+                    words.add(word)
+    except FileNotFoundError:
+        print("错误：未找到words.txt文件，请确认文件路径正确！")
+        return None
+#在这其中try是异常处理关键字“尝试"，执行try块内的代码，如果执行过程中出现指定的错误（比如文件找不到），就跳转到except块处理，而不是直接崩溃报错。
+#with open("words.txt", "r", encoding="utf-8") as f:
+#这是 Python 读取文件的标准安全写法，拆解：
+#
